@@ -1,0 +1,50 @@
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ----------------------
+# uv
+# ----------------------
+.venv/
+.uv/
+uv.lock
+
+# ----------------------
+# Virtualenv (if used outside uv)
+# ----------------------
+env/
+venv/
+
+# ----------------------
+# Test / Coverage
+# ----------------------
+htmlcov/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# ----------------------
+# IDE / Editors
+# ----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------
+# macOS / Linux / Windows system files
+# ----------------------
+.DS_Store
+Thumbs.db
