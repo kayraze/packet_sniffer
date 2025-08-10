@@ -1,0 +1,16 @@
+[project]
+name = "packet-sniffer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "rich>=14.1.0",
+    "scapy>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+]
