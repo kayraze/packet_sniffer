@@ -9,11 +9,14 @@ class PacketSniffer:
             interface=DEFAULT_INTERFACE,
             packet_count=DEFAULT_PACKET_COUNT,
             filter_exp=DEFAULT_FILTER,
+            only_data:bool=False
         ):
         self.interface = interface
         self.packet_count = packet_count
         self.filter_exp = filter_exp
-        self.analyzer = PacketAnalyzer()
+        self.analyzer = PacketAnalyzer(
+            only_data=only_data
+        )
 
     def start(self):
         sniff(
@@ -23,4 +26,3 @@ class PacketSniffer:
             filter=self.filter_exp,
             store=False
         )
-        

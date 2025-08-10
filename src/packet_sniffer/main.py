@@ -18,7 +18,6 @@ def main():
         help='The interface to listen on (positional)'
     )
     
-
     parser.add_argument(
         "-i", "--interface",
         dest="interface_flag",
@@ -30,7 +29,12 @@ def main():
         type=int,
         default=0,
         help='How many packets to capture before stopping'
-        )
+    )
+    parser.add_argument(
+        '--only-data',
+        action="store_true",
+        help="Show packets with data only"
+    )
     args = parser.parse_args()
 
     interface = args.interface_flag or args.interface
@@ -38,7 +42,8 @@ def main():
     sniffer = PacketSniffer(
         interface=interface,
         packet_count=args.packet_count,
-        filter_exp=args.filter
+        filter_exp=args.filter,
+        only_data=args.only_data,
     )
     sniffer.start()
 
