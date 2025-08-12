@@ -42,11 +42,19 @@ def main():
     parser.add_argument(
         "-f", "--file", help="Path to pcap or pcapng file for offline analysis"
     )
+    parser.add_argument(
+        "--full-packet",
+        action="store_true",
+        help="Combine fragmented packet data into one packet"
+    )
     args = parser.parse_args()
 
     interface = args.interface_flag or args.interface
 
-    packet_analyzer = PacketAnalyzer(only_data=args.only_data)
+    packet_analyzer = PacketAnalyzer(
+        only_data=args.only_data,
+        full_packet_only=args.full_packet
+    )
 
     if args.file:
         if not os.path.exists(args.file):
