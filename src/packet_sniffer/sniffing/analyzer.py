@@ -1,9 +1,10 @@
 from scapy.all import IP, TCP, UDP, ICMP, Raw
 from ..utils.display import print_packet_info
 
+
 class PacketAnalyzer:
 
-    def __init__(self, only_data:bool=False):
+    def __init__(self, only_data: bool = False):
         self.only_data = only_data
 
     def analyze(self, packet):
@@ -39,5 +40,11 @@ class PacketAnalyzer:
                 dst=packet[IP].dst,
                 proto=proto or "Other",
                 length=len(packet),
-                data=payload
+                data=payload,
             )
+
+        def extract_http_body(http_text: str) -> str:
+            parts = http_text.split("\r\n\r\n", 1)
+            if len(parts) == 2:
+                headers, body = parts
+                return body
